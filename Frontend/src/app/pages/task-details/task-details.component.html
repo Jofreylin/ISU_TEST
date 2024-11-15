@@ -9,24 +9,24 @@
       </div>
   
       <div *ngIf="task" class="task-details-content">
-        <mat-form-field appearance="outline" class="task-field">
+        <mat-form-field  appearance="outline" class="task-field">
           <mat-label>Title</mat-label>
-          <input matInput [value]="task.title" readonly />
+          <input matInput id="title-input" [value]="task.title" readonly />
         </mat-form-field>
   
-        <mat-form-field appearance="outline" class="task-field">
+        <mat-form-field  appearance="outline" class="task-field">
           <mat-label>Description</mat-label>
-          <textarea matInput [value]="task.description" rows="3" readonly></textarea>
+          <textarea matInput id="description-input" [value]="task.description" rows="3" readonly></textarea>
         </mat-form-field>
   
         <mat-form-field appearance="outline" class="task-field">
           <mat-label>Due Date</mat-label>
-          <input matInput [value]="task.dueDate | date" readonly />
+          <input matInput d="dueDate-input" [value]="task.dueDate | date" readonly />
         </mat-form-field>
   
-        <mat-form-field appearance="outline" class="task-field">
+        <mat-form-field  appearance="outline" class="task-field">
           <mat-label>Completed</mat-label>
-          <input matInput [value]="task.isCompleted ? 'Yes' : 'No'" readonly />
+          <input matInput id="completed-input" [value]="task.isCompleted ? 'Yes' : 'No'" readonly />
         </mat-form-field>
   
         <mat-form-field appearance="outline" class="task-field">

@@ -1,12 +1,12 @@
 export interface ITaskView {
     taskId: number
     title: string
-    description: string
+    description?: string
     dueDate: string
     isCompleted: boolean
     isRecordActive: boolean
-    createdAt: string
-    modifiedAt: string
+    createdAt?: string
+    modifiedAt?: string
 }
 
 

@@ -8,7 +8,6 @@ import { AlertService } from 'src/app/services/alert.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
-import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-task-list',
@@ -76,6 +75,10 @@ export class TaskListComponent {
 
   navigateToEdit(taskId: number): void {
     this.router.navigate(['/task-form',  ViewsEnum.Edit, taskId ]);
+  }
+
+  navigateToDetails(taskId: number): void {
+    this.router.navigate(['/task-details', taskId ]);
   }
 
   deleteTask(taskId: number) {
