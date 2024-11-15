@@ -2,8 +2,6 @@
 using BackEnd.DTO;
 using BackEnd.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
-using Newtonsoft.Json.Linq;
 
 namespace BackEnd.Services
 {
