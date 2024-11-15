@@ -20,8 +20,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { CustomInterceptor } from './services/custom.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -48,9 +50,12 @@ import { SharedModule } from './shared/shared.module';
     MatPaginatorModule,
     HttpClientModule,
     MatSnackBarModule,
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: CustomInterceptor, multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

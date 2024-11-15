@@ -8,6 +8,7 @@ export interface PaginatedItems<T> {
 }
 
 export interface IQueryParameters {
+    searchValue?: string;
     pageNumber: number;
     pageSize: number;
 }

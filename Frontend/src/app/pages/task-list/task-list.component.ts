@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { IQueryParameters, ViewsEnum } from 'src/app/models/response.model';
 import { ITaskView } from 'src/app/models/task.model';
 import { MatPaginator } from '@angular/material/paginator';
@@ -8,6 +8,7 @@ import { AlertService } from 'src/app/services/alert.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-task-list',
@@ -20,9 +21,11 @@ export class TaskListComponent {
   totalRecords = 0;
   pageSize = 5;
   currentPage = 1;
+  searchValue!: string;
   displayedColumns: string[] = ['title', 'dueDate', 'isCompleted', 'actions'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild("searchInput") searchInput!: ElementRef<HTMLInputElement>;
 
   constructor(
     private taskService: TaskService,
@@ -38,9 +41,11 @@ export class TaskListComponent {
 
   getList(pageNumber: number = 1, pageSize: number = 5): void {
     const params: IQueryParameters = {
+      searchValue: this.searchValue ?? "",
       pageNumber: pageNumber,
       pageSize: pageSize
     };
+
 
     this.taskService.getList(params).subscribe({
       next: (res) => {
@@ -55,7 +60,14 @@ export class TaskListComponent {
   }
 
   onPageChange(event: any): void {
-    this.getList(event.pageIndex + 1, event.pageSize); // Adjust for zero-based indexing
+    this.currentPage = event.pageIndex + 1; 
+    this.pageSize = event.pageSize;
+    this.getList(this.currentPage, this.pageSize);
+  }
+
+  doSearch(): void{
+    this.searchValue = this.searchInput.nativeElement.value;
+    this.getList(this.currentPage, this.pageSize);
   }
 
   navigateToAdd(): void {

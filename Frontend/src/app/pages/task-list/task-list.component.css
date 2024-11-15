@@ -16,12 +16,17 @@
 
 .header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.task-list-title {
+.task-list-title  {
+    width: 100%;
+    display: flex;
+}
+
+.task-list-title > h2 {
     font-size: 1.5rem;
     color: #333333;
 }
@@ -38,10 +43,16 @@
 
 mat-icon.completed {
     color: #4caf50;
-    /* Green for completed tasks */
 }
 
 mat-icon.not-completed {
     color: #f44336;
-    /* Red for not completed tasks */
+}
+
+
+.search-bar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

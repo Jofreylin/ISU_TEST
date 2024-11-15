@@ -16,6 +16,7 @@ export class TaskService {
   getList(params: IQueryParameters) {
     return this.httpClient.get<PaginatedItems<ITaskView>>(`${this.BASE_URL}/ToDo/List`, {
       params: <any>{
+        searchValue: params.searchValue,
         pageNumber: params.pageNumber,
         pageSize: params.pageSize
       }

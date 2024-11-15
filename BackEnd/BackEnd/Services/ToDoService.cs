@@ -3,6 +3,7 @@ using BackEnd.DTO;
 using BackEnd.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json.Linq;
 
 namespace BackEnd.Services
 {
@@ -38,7 +39,15 @@ namespace BackEnd.Services
                 pageSize = Pagination.MaxPageSize;
             }
 
-            IQueryable<ToDo> query = _context.ToDos.Where(x=> x.IsRecordActive == true);
+            IQueryable<ToDo> query = _context.ToDos;
+
+            if (!string.IsNullOrWhiteSpace(parameters.SearchValue))
+            {
+                parameters.SearchValue = parameters.SearchValue.Trim();
+                query = query.Where(x => EF.Functions.Like(x.Title, $"%{parameters.SearchValue}%"));
+            }
+
+            query = query.Where(x => x.IsRecordActive == true);
 
             int totalRecords = await query.CountAsync();
             int totalPages = Pagination.CalculateTotalPages(totalRecords, pageSize);
