@@ -1,0 +1,32 @@
+<div class="container">
+    <button mat-icon-button class="back-button" routerLink="/">
+        <mat-icon>arrow_back</mat-icon> 
+    </button>
+    <mat-card class="task-form-card">
+        <h2 class="task-form-title">{{ viewType === viewsEnum.Create ? 'Add Task' : 'Edit Task' }}</h2>
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="task-form">
+            <mat-form-field appearance="outline" class="task-form-field">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="task-form-field">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" rows="3"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="task-form-field">
+                <mat-label>Due Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dueDate" />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="isCompleted" class="task-form-checkbox">Completed</mat-checkbox>
+
+            <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="taskForm.invalid">
+                {{ viewType === viewsEnum.Create ? 'Add Task' : 'Update Task' }}
+            </button>
+        </form>
+    </mat-card>
+</div>

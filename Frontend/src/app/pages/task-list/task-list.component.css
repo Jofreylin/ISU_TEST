@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #7faebc;
+}
+
+.task-list-card {
+    width: 100%;
+    max-width: 70vw;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.task-list-title {
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.add-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.task-table {
+    width: 100%;
+}
+
+mat-icon.completed {
+    color: #4caf50;
+    /* Green for completed tasks */
+}
+
+mat-icon.not-completed {
+    color: #f44336;
+    /* Red for not completed tasks */
+}

@@ -1,0 +1,44 @@
+<div class="container">
+    <button mat-icon-button class="back-button" routerLink="/">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    <mat-card class="task-details-card">
+      <div class="header">
+        
+        <h2 class="task-details-title">Task Details</h2>
+      </div>
+  
+      <div *ngIf="task" class="task-details-content">
+        <mat-form-field appearance="outline" class="task-field">
+          <mat-label>Title</mat-label>
+          <input matInput [value]="task.title" readonly />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="task-field">
+          <mat-label>Description</mat-label>
+          <textarea matInput [value]="task.description" rows="3" readonly></textarea>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="task-field">
+          <mat-label>Due Date</mat-label>
+          <input matInput [value]="task.dueDate | date" readonly />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="task-field">
+          <mat-label>Completed</mat-label>
+          <input matInput [value]="task.isCompleted ? 'Yes' : 'No'" readonly />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="task-field">
+          <mat-label>Created At</mat-label>
+          <input matInput [value]="task.createdAt | date:'long'" readonly />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="task-field">
+          <mat-label>Last Modification At</mat-label>
+          <input matInput [value]="task.modifiedAt | date:'long'" readonly />
+        </mat-form-field>
+      </div>
+    </mat-card>
+  </div>
+  

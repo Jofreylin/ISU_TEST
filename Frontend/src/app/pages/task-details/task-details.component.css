@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #7faebc;
+  }
+  
+  .task-details-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .back-button {
+    color: #ffff;
+    margin-right: 0.5rem;
+    background-color: #ab9935;
+    margin-bottom: 10px;
+}
+  
+.task-details-title {
+    font-size: 1.5rem;
+    color: #333333;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .task-details-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .task-field {
+    width: 100%;
+  }
