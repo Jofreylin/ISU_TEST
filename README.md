@@ -54,7 +54,7 @@
  3. **Run the Backend**:
     Start the backend server with the following command:
     ```bash
-    dotnet run --launch-profile https
+    dotnet run --project BackEnd --launch-profile https
     ```
  4. **Backend URL**: The backend will be available at `https://localhost:7210`.
 
