@@ -57,6 +57,7 @@
     dotnet run --project BackEnd --launch-profile https
     ```
  4. **Backend URL**: The backend will be available at `https://localhost:7210`.
+ 5. **OpenAPI Swagger URL**: Available at `https://localhost:7210/swagger/index.html`.
 
  ### Step 3: Frontend Setup
  1. **Navigate to the Frontend Folder**:
